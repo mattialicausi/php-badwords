@@ -12,8 +12,12 @@
     
     if(isset($_GET['text']) && $_GET['text'] != ''){
 
-        if(str_contains($_GET['text'], $_GET['textCensura'])){
-            $text = str_replace($_GET['textCensura'], '***', $_GET['text']);
+        //$text = trim($_GET['text']);
+        $textCensura = trim($_GET['textCensura']);
+
+
+        if(str_contains($_GET['text'], $textCensura)){
+            $text = str_replace($textCensura, '***', $_GET['text']);
         } else {
             $text = $_GET['text'];
         }
