@@ -26,6 +26,11 @@
     } else {
         $text = 'Inserisci del testo da cui censurare una parola';
     }
+    
+    $textBefore = $_GET['text'];
+    $lenght1 = strlen($textBefore);
+    
+    $lenght2 = strlen($text);
 
 ?>
 
@@ -43,9 +48,14 @@
 
     <div class="text-center container">
         <h1>Bad Words</h1>
-
+        <h2>Prima</h2>
         <?php echo '<p>'.$textCensura.'</p>' ?>
-        <?php echo '<p>'.$text.'</p>' ?>
+        <?php echo '<p>'.$textBefore.' '.$lenght1.'</p>' ?>
+
+
+        <h2>Dopo</h2>
+        <?php echo '<p>'.$textCensura.'</p>' ?>
+        <?php echo '<p>'.$text.' '.$lenght2.'</p>' ?>
         
         
     </div>
