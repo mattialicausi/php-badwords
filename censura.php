@@ -12,11 +12,10 @@
     
     if(isset($_GET['text']) && $_GET['text'] != ''){
 
-        //$text = trim($_GET['text']);
-        $textCensura = trim($_GET['textCensura']);
+        $textCensura = trim(strtolower($_GET['textCensura']));
 
 
-        if(str_contains($_GET['text'], $textCensura)){
+        if(str_contains(strtolower($_GET['text']), $textCensura)){
             $text = str_replace($textCensura, '***', $_GET['text']);
         } else {
             $text = $_GET['text'];
@@ -26,7 +25,7 @@
     } else {
         $text = 'Inserisci del testo da cui censurare una parola';
     }
-    
+
     $textBefore = $_GET['text'];
     $lenght1 = strlen($textBefore);
     
@@ -48,13 +47,12 @@
 
     <div class="text-center container">
         <h1>Bad Words</h1>
+         <?php echo '<p>'.$textCensura.'</p>' ?>
+
         <h2>Prima</h2>
-        <?php echo '<p>'.$textCensura.'</p>' ?>
         <?php echo '<p>'.$textBefore.' '.$lenght1.'</p>' ?>
 
-
         <h2>Dopo</h2>
-        <?php echo '<p>'.$textCensura.'</p>' ?>
         <?php echo '<p>'.$text.' '.$lenght2.'</p>' ?>
         
         
