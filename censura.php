@@ -11,7 +11,14 @@
     //FUNZIONE PER PRENDERE IL TESTO DA CUI CENSURARE LA PAROLA
     
     if(isset($_GET['text']) && $_GET['text'] != ''){
-        $text = $_GET['text'];
+
+        if(str_contains($_GET['text'], $_GET['textCensura'])){
+            $text = str_replace($_GET['textCensura'], '***', $_GET['text']);
+        } else {
+            $text = $_GET['text'];
+        }
+       
+        
     } else {
         $text = 'Inserisci del testo da cui censurare una parola';
     }
